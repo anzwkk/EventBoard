@@ -9,7 +9,6 @@ public class DatabaseConnection {
     public static final String DB_USERNAME = System.getenv("db_username");
     public static final String DB_PASSWORD = System.getenv("db_password");
 
-    //отдает подключ к другим классам
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
     }
