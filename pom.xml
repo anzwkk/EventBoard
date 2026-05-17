@@ -44,7 +44,7 @@
             <scope>test</scope>
         </dependency>
 
-    </dependencies>
+    </dependencies> 
 
     <build>
         <finalName>Event_Board</finalName>
