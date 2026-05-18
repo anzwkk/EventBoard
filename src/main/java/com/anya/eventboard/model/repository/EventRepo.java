@@ -33,5 +33,32 @@ public class EventRepo {
         return events;
     }
 
+    public Events findById(int id){
+        String sql = "SELECT id, title, event_date, max_seats FROM events WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)){
 
+             pstmt.setInt(1, id);
+           try(ResultSet rs = pstmt.executeQuery()) {
+               if (rs.next()) {
+                   Events event = new Events();
+
+                   event.setId(rs.getInt("id"));
+                   event.setTitle(rs.getString("title"));
+                   event.setMaxSeats(rs.getInt("max_seats"));
+                   event.setEventDate(rs.getTimestamp("event_date").toLocalDateTime());
+
+                   return event;
+               }
+           }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
+
+
+
