@@ -29,7 +29,7 @@ public class EventRepo {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return events;
@@ -55,7 +55,7 @@ public class EventRepo {
            }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return null;
@@ -75,7 +75,7 @@ public class EventRepo {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
