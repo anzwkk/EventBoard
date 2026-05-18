@@ -2,11 +2,13 @@ package com.anya.eventboard.model.repository;
 import com.anya.eventboard.db.DatabaseConnection;
 import com.anya.eventboard.model.entity.Events;
 
+import java.util.ArrayList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.Timestamp;
 
 
 public class EventRepo {
@@ -58,6 +60,25 @@ public class EventRepo {
 
         return null;
     }
+
+    public void addNewEvent(Events event){
+        String sql = "INSERT INTO events (title, event_date, max_seats) VALUES (?,?,?)";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, event.getTitle());
+            pstmt.setTimestamp(2, Timestamp.valueOf(event.getEventDate()));
+            pstmt.setInt(3, event.getMaxSeats());
+
+            pstmt.executeUpdate();
+            System.out.println("zahid dodano v bd");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 
