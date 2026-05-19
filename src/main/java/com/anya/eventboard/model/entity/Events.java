@@ -16,4 +16,5 @@ public class Events {
     private LocalDateTime eventDate;
     private int maxSeats;
 
+
 }
