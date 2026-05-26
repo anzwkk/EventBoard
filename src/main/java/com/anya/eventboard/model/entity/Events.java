@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @AllArgsConstructor
@@ -15,6 +16,14 @@ public class Events {
     private String title;
     private LocalDateTime eventDate;
     private int maxSeats;
+
+    public String getFormattedDate() {
+        if (eventDate == null) {
+            return "";
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        return eventDate.format(formatter);
+    }
 
 
 }

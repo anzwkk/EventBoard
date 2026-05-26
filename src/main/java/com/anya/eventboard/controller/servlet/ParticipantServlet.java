@@ -43,6 +43,7 @@ public class ParticipantServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException{
+        req.setCharacterEncoding("UTF-8");
         int eventId = Integer.parseInt(req.getParameter("eventId"));
         String name = req.getParameter("studentName");
         String email = req.getParameter("studentEmail");

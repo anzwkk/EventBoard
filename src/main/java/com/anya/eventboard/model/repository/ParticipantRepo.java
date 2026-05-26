@@ -14,7 +14,7 @@ public class ParticipantRepo {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, eventId);
             try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
+                while (rs.next()) {
                     Participants part = new Participants();
                     part.setEventId(rs.getInt("event_id"));
                     part.setStudentName(rs.getString("student_name"));

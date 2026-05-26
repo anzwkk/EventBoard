@@ -5,7 +5,7 @@
 <head>
     <title>Деталі заходу</title>
 </head>
-<
+<body>
     <a href="${pageContext.request.contextPath}/events">Повернутися до списку</a>
 
     <c:if test="${empty selectedEvent}">
@@ -14,7 +14,7 @@
 
     <c:if test="${not empty selectedEvent}">
         <h1>${selectedEvent.title}</h1>
-        <p><strong>Дата проведення:</strong> ${selectedEvent.eventDate}</p>
+        <p><strong>Дата проведення:</strong> ${selectedEvent.formattedDate}</p>
         <p><strong>Загалом місць:</strong> ${selectedEvent.maxSeats}</p>
         <p><strong>Залишилось місць:</strong> ${eventService.avaliableSeats(selectedEvent.id)}</p>
 

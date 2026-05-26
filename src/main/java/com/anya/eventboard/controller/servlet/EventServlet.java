@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-@WebServlet(name = "Events", value = "/events")
+@WebServlet(name = "Events", urlPatterns = {"/events", ""})
 public class EventServlet extends HttpServlet {
     private EventRepo eventRepo;
     private EventService eventService;
@@ -40,6 +40,7 @@ public class EventServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException{
+        req.setCharacterEncoding("UTF-8");
         String title = req.getParameter("title");
         String date = req.getParameter("eventDate");
         int maxSeats = Integer.parseInt(req.getParameter("maxSeats"));

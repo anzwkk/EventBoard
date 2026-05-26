@@ -15,7 +15,7 @@
         <input type="text" name="title" required><br><br>
 
         <label>Дата заходу:</label>
-        <input type="date" name="eventDate" required><br><br>
+        <input type="datetime-local" name="eventDate" required><br><br>
 
         <label>Кількість місць:</label>
         <input type="number" name="maxSeats" min="1" required><br><br>
@@ -40,7 +40,7 @@
             <c:forEach var="event" items="${eventsList}">
                 <tr>
                     <td>${event.title}</td>
-                    <td>${event.eventDate}</td>
+                    <td>${event.formattedDate}</td>
                     <td>${event.maxSeats}</td>
                     <td>${eventService.avaliableSeats(event.id)}</td>
                     <td>
