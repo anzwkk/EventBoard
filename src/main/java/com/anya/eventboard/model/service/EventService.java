@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 
 @RequiredArgsConstructor
+
 public class EventService {
     private final EventRepo eventRepo;
     private final ParticipantRepo participantRepo;
